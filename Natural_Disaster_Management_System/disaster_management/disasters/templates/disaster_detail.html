@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .disaster-details {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .disaster-details li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Natural Disaster Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'add_update' %}">Add Update</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Disaster Details</h2>
+        <div class="disaster-details">
+            <ul>
+                <li><strong>Type:</strong> {{ disaster.get_disaster_type_display }}</li>
+                <li><strong>Location:</strong> {{ disaster.location }}</li>
+                <li><strong>Description:</strong> {{ disaster.description }}</li>
+                <li><strong>Magnitude:</strong> {{ disaster.magnitude }}</li>
+                <li><strong>Affected Population:</strong> {{ disaster.affected_population }}</li>
+                <li><strong>Damage Cost:</strong> {{ disaster.damage_cost }} Rupees</li>
+                <li><strong>Date Reported:</strong> {{ disaster.date_reported }}</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Natural Disaster Management System</p>
+    </footer>
+</body>
+</html>
+
+
+
